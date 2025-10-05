@@ -7,7 +7,7 @@ import { Users, Gauge, Shield, Fuel } from "lucide-react"
 const vehicles = [
   {
     name: "Fourwheel Locin 300cc",
-    image: "/modern-atv-fourwheel-beach-adventure-red.jpg",
+    image: "/modern-atv-fourwheel-beach-adventure-red.jpeg",
     capacity: "2 personas",
     power: "300cc",
     brand: "Locin",

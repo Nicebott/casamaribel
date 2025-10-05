@@ -35,9 +35,9 @@ const apartments = [
   },
   {
     name: "Apartamento B",
-    image: "/cozy-studio-apartment-tropical-beach-decor.jpg",
+    image: "/cozy-studio-apartment-tropical-beach-decor.jpeg",
     images: [
-      "/cozy-studio-apartment-tropical-beach-decor.jpg",
+      "/cozy-studio-apartment-tropical-beach-decor.jpeg",
       "/studio-apartment-kitchenette.jpg",
       "/cozy-bedroom-tropical-style.jpg",
       "/modern-bathroom-compact.jpg",
