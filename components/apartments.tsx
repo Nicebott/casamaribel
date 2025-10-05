@@ -13,7 +13,7 @@ const apartments = [
     images: [
       "/luxury-beach-apartment-interior-caribbean-modern.avif",
       "/modern-kitchen-caribbean-apartment.avif",
-      "/luxury-bedroom-ocean-view.avif",
+      "/luxury-bedroom-ocean-view.jpg",
       "/spacious-bathroom-modern-design.avif",
     ],
     beds: 2,
