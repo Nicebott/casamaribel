@@ -1,38 +1,101 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Bed, Bath, Maximize, Wifi, Wind, Waves } from "lucide-react"
+import { ApartmentModal } from "./apartment-modal"
+import { useState } from "react"
 
 const apartments = [
   {
-    name: "Suite Paraíso",
-    image: "/luxury-beach-apartment-interior-caribbean-modern.jpg",
+    name: "Apartamento A",
+    image: "/luxury-beach-apartment-interior-caribbean-modern.jpeg",
+    images: [
+      "/luxury-beach-apartment-interior-caribbean-modern.jpg",
+      "/modern-kitchen-caribbean-apartment.jpg",
+      "/luxury-bedroom-ocean-view.jpg",
+      "/spacious-bathroom-modern-design.jpg",
+    ],
     beds: 2,
-    baths: 2,
-    size: "85m²",
+    baths: 1,
+    size: "60m²",
     price: "$120",
-    features: ["WiFi", "A/C", "Vista al Mar"],
+    features: ["WiFi", "A/C", "1 min de la playa"],
+    description:
+      "Hermoso apartamento de 2 habitaciones a solo 1 minuto de la playa. Perfecto para parejas o familias pequeñas que buscan comodidad cerca del mar Caribe en Las Terrenas.",
+    amenities: [
+      "Cocina equipada",
+      "TV por cable",
+      "Estacionamiento",
+      "Capacidad 4 personas",
+      "WiFi de alta velocidad",
+      "Aire acondicionado",
+      "A 1 minuto de la playa",
+    ],
   },
   {
-    name: "Estudio Tropical",
+    name: "Apartamento B",
     image: "/cozy-studio-apartment-tropical-beach-decor.jpg",
+    images: [
+      "/cozy-studio-apartment-tropical-beach-decor.jpg",
+      "/studio-apartment-kitchenette.jpg",
+      "/cozy-bedroom-tropical-style.jpg",
+      "/modern-bathroom-compact.jpg",
+    ],
     beds: 1,
     baths: 1,
-    size: "45m²",
+    size: "50m²",
     price: "$75",
-    features: ["WiFi", "A/C", "Balcón"],
+    features: ["WiFi", "A/C", "1 min de la playa"],
+    description:
+      "Acogedor apartamento de 1 habitación a solo 1 minuto de la playa. Ideal para parejas o viajeros solitarios que buscan comodidad y cercanía al mar.",
+    amenities: [
+      "Cocina equipada",
+      "TV por cable",
+      "Balcón privado",
+      "Capacidad 2 personas",
+      "WiFi de alta velocidad",
+      "Aire acondicionado",
+      "A 1 minuto de la playa",
+    ],
   },
   {
-    name: "Penthouse Maribel",
+    name: "Apartamento D",
     image: "/luxury-penthouse-ocean-view-caribbean-terrace.jpg",
-    beds: 3,
-    baths: 3,
-    size: "150m²",
-    price: "$250",
-    features: ["WiFi", "A/C", "Vista Panorámica"],
+    images: [
+      "/luxury-penthouse-ocean-view-caribbean-terrace.jpg",
+      "/luxury-penthouse-living-room-ocean-view.jpg",
+      "/master-bedroom-luxury-caribbean.jpg",
+      "/gourmet-kitchen-modern-penthouse.jpg",
+      "/rooftop-terrace-ocean-view.jpg",
+    ],
+    beds: 1,
+    baths: 1,
+    size: "50m²",
+    price: "$80",
+    features: ["WiFi", "A/C", "Balcón"],
+    description:
+      "Apartamento de 1 habitación con diseño moderno y todas las comodidades. Perfecto para parejas que buscan un espacio acogedor y funcional.",
+    amenities: [
+      "Cocina equipada",
+      "TV por cable",
+      "Balcón privado",
+      "Capacidad 2 personas",
+      "WiFi de alta velocidad",
+      "Aire acondicionado",
+    ],
   },
 ]
 
 export function Apartments() {
+  const [selectedApartment, setSelectedApartment] = useState<(typeof apartments)[0] | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleReserveClick = (apartment: (typeof apartments)[0]) => {
+    setSelectedApartment(apartment)
+    setIsModalOpen(true)
+  }
+
   return (
     <section id="apartamentos" className="py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -57,7 +120,7 @@ export function Apartments() {
                   alt={apt.name}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full font-bold">
+                <div className="absolute top-4 right-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-full font-bold shadow-lg">
                   {apt.price}/noche
                 </div>
               </div>
@@ -86,18 +149,24 @@ export function Apartments() {
                     <span key={i} className="inline-flex items-center gap-1 bg-accent px-3 py-1 rounded-full text-sm">
                       {feature === "WiFi" && <Wifi className="w-3 h-3" />}
                       {feature === "A/C" && <Wind className="w-3 h-3" />}
-                      {(feature.includes("Vista") || feature.includes("Mar")) && <Waves className="w-3 h-3" />}
+                      {(feature.includes("Vista") || feature.includes("Mar") || feature.includes("Playa")) && (
+                        <Waves className="w-3 h-3" />
+                      )}
                       {feature}
                     </span>
                   ))}
                 </div>
 
-                <Button className="w-full bg-primary hover:bg-primary/90">Reservar Ahora</Button>
+                <Button onClick={() => handleReserveClick(apt)} className="w-full bg-primary hover:bg-primary/90">
+                  Ver Detalles y Reservar
+                </Button>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
+
+      <ApartmentModal apartment={selectedApartment} open={isModalOpen} onOpenChange={setIsModalOpen} />
     </section>
   )
 }

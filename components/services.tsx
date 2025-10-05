@@ -1,4 +1,4 @@
-import { Building2, Bike, DollarSign } from "lucide-react"
+import { Building2, Bike, Scale } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 const services = [
@@ -16,9 +16,10 @@ const services = [
     color: "text-secondary",
   },
   {
-    icon: DollarSign,
-    title: "Servicios Financieros",
-    description: "Asesoría financiera profesional y servicios de cambio de moneda para facilitar tu estadía.",
+    icon: Scale,
+    title: "Servicios Jurídicos",
+    description:
+      "Asesoría legal profesional para constitución de empresas, transferencias de propiedades y residencias.",
     color: "text-primary",
   },
 ]

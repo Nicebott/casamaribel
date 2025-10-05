@@ -1,42 +1,42 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { CreditCard, TrendingUp, Banknote, PiggyBank } from "lucide-react"
+import { FileText, Building2, Home, Users } from "lucide-react"
 
 const services = [
   {
-    icon: Banknote,
-    title: "Cambio de Moneda",
-    description: "Tasas competitivas para cambio de dólares, euros y pesos dominicanos.",
+    icon: Building2,
+    title: "Constitución de Empresa",
+    description: "Asesoría completa para la creación y registro de tu empresa en República Dominicana.",
   },
   {
-    icon: CreditCard,
-    title: "Transferencias",
-    description: "Envíos y recepción de dinero de forma segura y rápida.",
+    icon: Users,
+    title: "Sociedades Comerciales",
+    description: "Gestión y constitución de sociedades comerciales con respaldo legal profesional.",
   },
   {
-    icon: TrendingUp,
-    title: "Asesoría Financiera",
-    description: "Consultoría profesional para inversiones y planificación financiera.",
+    icon: Home,
+    title: "Transferencias de Propiedades",
+    description: "Trámites seguros y eficientes para la compra, venta y transferencia de inmuebles.",
   },
   {
-    icon: PiggyBank,
-    title: "Servicios de Ahorro",
-    description: "Opciones de ahorro y planes financieros personalizados.",
+    icon: FileText,
+    title: "Residencias",
+    description: "Asesoría integral para obtener tu residencia temporal o permanente en RD.",
   },
 ]
 
 export function Financial() {
   return (
-    <section id="financiero" className="py-24 bg-background">
+    <section id="juridico" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
             className="text-4xl md:text-5xl font-bold mb-4 text-balance"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            Servicios Financieros
+            Servicios Jurídicos
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Soluciones financieras confiables para residentes y visitantes de Las Terrenas
+            Asesoría legal profesional para residentes, inversionistas y empresarios en Las Terrenas
           </p>
         </div>
 
@@ -60,18 +60,18 @@ export function Financial() {
           <Card className="bg-primary text-white border-0">
             <CardContent className="p-8 md:p-12 text-center">
               <h3 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
-                ¿Necesitas asesoría personalizada?
+                ¿Necesitas asesoría legal personalizada?
               </h3>
               <p className="text-lg mb-6 text-white/90">
-                Nuestro equipo de expertos está listo para ayudarte con tus necesidades financieras
+                Nuestro equipo de profesionales está listo para ayudarte con tus trámites legales
               </p>
               <a
-                href="https://wa.me/18095551234"
+                href="https://wa.me/18296974277?text=Hola%2C%20necesito%20información%20sobre%20servicios%20jurídicos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors"
               >
-                Contactar Asesor
+                Contactar Asesor Legal
               </a>
             </CardContent>
           </Card>

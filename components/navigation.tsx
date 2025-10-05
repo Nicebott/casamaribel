@@ -61,12 +61,15 @@ export function Navigation() {
               Fourwheels
             </button>
             <button
-              onClick={() => scrollToSection("financiero")}
+              onClick={() => scrollToSection("juridico")}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
-              Financiero
+              Jurídico
             </button>
-            <Button onClick={() => scrollToSection("contacto")} className="bg-secondary hover:bg-secondary/90">
+            <Button
+              onClick={() => scrollToSection("contacto")}
+              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+            >
               Contacto
             </Button>
           </div>
@@ -103,15 +106,15 @@ export function Navigation() {
                 Fourwheels
               </button>
               <button
-                onClick={() => scrollToSection("financiero")}
+                onClick={() => scrollToSection("juridico")}
                 className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors font-medium"
               >
-                Financiero
+                Jurídico
               </button>
               <div className="px-4">
                 <Button
                   onClick={() => scrollToSection("contacto")}
-                  className="w-full bg-secondary hover:bg-secondary/90"
+                  className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
                 >
                   Contacto
                 </Button>
