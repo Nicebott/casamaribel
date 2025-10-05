@@ -9,12 +9,12 @@ import { useState } from "react"
 const apartments = [
   {
     name: "Apartamento A",
-    image: "/luxury-beach-apartment-interior-caribbean-modern.jpeg",
+    image: "/luxury-beach-apartment-interior-caribbean-modern.avif",
     images: [
-      "/luxury-beach-apartment-interior-caribbean-modern.jpg",
-      "/modern-kitchen-caribbean-apartment.jpg",
-      "/luxury-bedroom-ocean-view.jpg",
-      "/spacious-bathroom-modern-design.jpg",
+      "/luxury-beach-apartment-interior-caribbean-modern.avif",
+      "/modern-kitchen-caribbean-apartment.avif",
+      "/luxury-bedroom-ocean-view.avif",
+      "/spacious-bathroom-modern-design.avif",
     ],
     beds: 2,
     baths: 1,
