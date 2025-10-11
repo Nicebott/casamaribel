@@ -21,6 +21,7 @@ const apartments = [
     size: "60m²",
     price: "$120",
     features: ["WiFi", "A/C", "1 min de la playa"],
+    available: true,
     description:
       "Hermoso apartamento de 2 habitaciones a solo 1 minuto de la playa. Perfecto para parejas o familias pequeñas que buscan comodidad cerca del mar Caribe en Las Terrenas.",
     amenities: [
@@ -47,6 +48,7 @@ const apartments = [
     size: "50m²",
     price: "$75",
     features: ["WiFi", "A/C", "1 min de la playa"],
+    available: true,
     description:
       "Acogedor apartamento de 1 habitación a solo 1 minuto de la playa. Ideal para parejas o viajeros solitarios que buscan comodidad y cercanía al mar.",
     amenities: [
@@ -74,6 +76,7 @@ const apartments = [
     size: "50m²",
     price: "$80",
     features: ["WiFi", "A/C", "Balcón"],
+    available: false,
     description:
       "Apartamento de 1 habitación con diseño moderno y todas las comodidades. Perfecto para parejas que buscan un espacio acogedor y funcional.",
     amenities: [
