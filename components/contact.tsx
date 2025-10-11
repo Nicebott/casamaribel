@@ -25,27 +25,27 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="pt-24 pb-12 bg-accent/30">
+    <section id="contacto" className="pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-10 md:pb-12 bg-accent/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-balance"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Contáctanos
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
             Estamos aquí para ayudarte. Escríbenos y te responderemos lo antes posible
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <Card>
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <CardContent className="p-5 sm:p-6 md:p-8">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
                     Nombre Completo
                   </label>
                   <Input
@@ -54,10 +54,11 @@ export function Contact() {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Tu nombre"
                     required
+                    className="text-sm sm:text-base"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
                     Email
                   </label>
                   <Input
@@ -67,10 +68,11 @@ export function Contact() {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="tu@email.com"
                     required
+                    className="text-sm sm:text-base"
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                  <label htmlFor="phone" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
                     Teléfono
                   </label>
                   <Input
@@ -79,10 +81,11 @@ export function Contact() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+1 809 555 1234"
+                    className="text-sm sm:text-base"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
                     Mensaje
                   </label>
                   <Textarea
@@ -92,9 +95,13 @@ export function Contact() {
                     placeholder="¿En qué podemos ayudarte?"
                     rows={5}
                     required
+                    className="text-sm sm:text-base"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-lg py-6">
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-base sm:text-lg py-5 sm:py-6"
+                >
                   Enviar Mensaje
                 </Button>
               </form>
@@ -102,23 +109,23 @@ export function Contact() {
           </Card>
 
           {/* Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Dirección</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-bold text-base sm:text-lg mb-1">Dirección</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">
                       Playa Las Ballenas, Las Terrenas
                       <br />
                       Samaná, República Dominicana
                     </p>
                   </div>
                 </div>
-                <div className="w-full aspect-video rounded-lg overflow-hidden mt-4">
+                <div className="w-full aspect-video rounded-lg overflow-hidden mt-3 sm:mt-4">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d559.6795039698538!2d-69.55012703340755!3d19.32320650605897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaefb6aee5d9733%3A0x155812d7428f27c4!2sApartamentos%20CASA%20MARIBEL%20las%20terrenas!5e0!3m2!1ses-419!2sdo!4v1760066571181!5m2!1ses-419!2sdo"
                     width="100%"
@@ -134,44 +141,46 @@ export function Contact() {
             </Card>
 
             <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Teléfono</h3>
-                    <p className="text-muted-foreground">+1 (829) 697-4277</p>
-                    <p className="text-muted-foreground">(809) 967-2175</p>
+                    <h3 className="font-bold text-base sm:text-lg mb-1">Teléfono</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">+1 (829) 697-4277</p>
+                    <p className="text-sm sm:text-base text-muted-foreground">(809) 967-2175</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary" />
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Email</h3>
-                    <p className="text-muted-foreground">ferminmaribel@casamaribel.com.do</p>
+                    <h3 className="font-bold text-base sm:text-lg mb-1">Email</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground break-all">
+                      ferminmaribel@casamaribel.com.do
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-primary" />
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Horario</h3>
-                    <p className="text-muted-foreground">Lunes - Domingo</p>
-                    <p className="text-muted-foreground">8:00 AM - 8:00 PM</p>
+                    <h3 className="font-bold text-base sm:text-lg mb-1">Horario</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">Lunes - Domingo</p>
+                    <p className="text-sm sm:text-base text-muted-foreground">8:00 AM - 8:00 PM</p>
                   </div>
                 </div>
               </CardContent>

@@ -57,23 +57,23 @@ export function ApartmentModal({ apartment, open, onOpenChange }: ApartmentModal
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
+          <DialogTitle className="text-2xl sm:text-3xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
             {apartment.name}
           </DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Galería de imágenes */}
           <div className="relative">
-            <div className="relative h-96 rounded-lg overflow-hidden">
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden">
               <img
                 src={apartment.images[currentImageIndex] || "/placeholder.svg"}
                 alt={`${apartment.name} - Imagen ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full font-bold">
+              <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-secondary text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold text-sm sm:text-base">
                 {apartment.price}/noche
               </div>
             </div>
@@ -82,24 +82,24 @@ export function ApartmentModal({ apartment, open, onOpenChange }: ApartmentModal
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-2 sm:p-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
                   aria-label="Imagen anterior"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-2 sm:p-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
                   aria-label="Siguiente imagen"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
                   {apartment.images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-3 h-3 rounded-full transition-all shadow-md ${
+                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all shadow-md ${
                         index === currentImageIndex ? "bg-white scale-125" : "bg-white/60 hover:bg-white/80"
                       }`}
                       aria-label={`Ir a imagen ${index + 1}`}
@@ -111,42 +111,47 @@ export function ApartmentModal({ apartment, open, onOpenChange }: ApartmentModal
           </div>
 
           {/* Información básica */}
-          <div className="flex items-center gap-6 text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-muted-foreground text-sm sm:text-base">
             <div className="flex items-center gap-2">
-              <Bed className="w-5 h-5" />
+              <Bed className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>
                 {apartment.beds} {apartment.beds === 1 ? "Habitación" : "Habitaciones"}
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <Bath className="w-5 h-5" />
+              <Bath className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>
                 {apartment.baths} {apartment.baths === 1 ? "Baño" : "Baños"}
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <Maximize className="w-5 h-5" />
+              <Maximize className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>{apartment.size}</span>
             </div>
           </div>
 
           {/* Descripción */}
           <div>
-            <h3 className="text-xl font-bold mb-2">Descripción</h3>
-            <p className="text-muted-foreground leading-relaxed">{apartment.description}</p>
+            <h3 className="text-lg sm:text-xl font-bold mb-2">Descripción</h3>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{apartment.description}</p>
           </div>
 
           {/* Características principales */}
           <div>
-            <h3 className="text-xl font-bold mb-3">Características Principales</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3">Características Principales</h3>
             <div className="flex flex-wrap gap-2">
               {apartment.features.map((feature, i) => (
-                <span key={i} className="inline-flex items-center gap-2 bg-accent px-4 py-2 rounded-full">
-                  {feature === "WiFi" && <Wifi className="w-4 h-4" />}
-                  {feature === "A/C" && <Wind className="w-4 h-4" />}
-                  {(feature.includes("Vista") || feature.includes("Mar")) && <Waves className="w-4 h-4" />}
-                  {feature.includes("Balcón") && <MapPin className="w-4 h-4" />}
-                  {feature.includes("Panorámica") && <Waves className="w-4 h-4" />}
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-1.5 sm:gap-2 bg-accent px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm"
+                >
+                  {feature === "WiFi" && <Wifi className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {feature === "A/C" && <Wind className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {(feature.includes("Vista") || feature.includes("Mar")) && (
+                    <Waves className="w-3 h-3 sm:w-4 sm:h-4" />
+                  )}
+                  {feature.includes("Balcón") && <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {feature.includes("Panorámica") && <Waves className="w-3 h-3 sm:w-4 sm:h-4" />}
                   {feature}
                 </span>
               ))}
@@ -155,17 +160,17 @@ export function ApartmentModal({ apartment, open, onOpenChange }: ApartmentModal
 
           {/* Amenidades adicionales */}
           <div>
-            <h3 className="text-xl font-bold mb-3">Amenidades</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <h3 className="text-lg sm:text-xl font-bold mb-3">Amenidades</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
               {apartment.amenities.map((amenity, i) => (
-                <div key={i} className="flex items-center gap-2 text-muted-foreground">
-                  {amenity.includes("Cocina") && <Utensils className="w-4 h-4" />}
-                  {amenity.includes("TV") && <Tv className="w-4 h-4" />}
-                  {amenity.includes("Estacionamiento") && <Car className="w-4 h-4" />}
-                  {amenity.includes("Capacidad") && <Users className="w-4 h-4" />}
-                  {amenity.includes("WiFi") && <Wifi className="w-4 h-4" />}
-                  {amenity.includes("Aire") && <Wind className="w-4 h-4" />}
-                  <span className="text-sm">{amenity}</span>
+                <div key={i} className="flex items-center gap-2 text-muted-foreground text-sm">
+                  {amenity.includes("Cocina") && <Utensils className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {amenity.includes("TV") && <Tv className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {amenity.includes("Estacionamiento") && <Car className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {amenity.includes("Capacidad") && <Users className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {amenity.includes("WiFi") && <Wifi className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  {amenity.includes("Aire") && <Wind className="w-3 h-3 sm:w-4 sm:h-4" />}
+                  <span className="text-xs sm:text-sm">{amenity}</span>
                 </div>
               ))}
             </div>
@@ -173,11 +178,14 @@ export function ApartmentModal({ apartment, open, onOpenChange }: ApartmentModal
 
           {/* Botón de reserva */}
           {apartment.available !== false ? (
-            <Button onClick={handleReserve} className="w-full bg-primary hover:bg-primary/90 text-lg py-6">
+            <Button
+              onClick={handleReserve}
+              className="w-full bg-primary hover:bg-primary/90 text-base sm:text-lg py-5 sm:py-6"
+            >
               Reservar Ahora por WhatsApp
             </Button>
           ) : (
-            <div className="w-full bg-red-100 text-red-800 text-center py-6 rounded-lg font-semibold text-lg">
+            <div className="w-full bg-red-100 text-red-800 text-center py-5 sm:py-6 rounded-lg font-semibold text-base sm:text-lg">
               Este apartamento no está disponible actualmente
             </div>
           )}

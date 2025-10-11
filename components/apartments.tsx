@@ -100,46 +100,49 @@ export function Apartments() {
   }
 
   return (
-    <section id="apartamentos" className="py-24 bg-background">
+    <section id="apartamentos" className="py-12 sm:py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-balance"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Apartamentos Disponibles
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
             Espacios diseñados para tu comodidad con las mejores vistas de Las Terrenas
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {apartments.map((apt, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-2xl transition-all duration-300 group">
               <div className="relative overflow-hidden">
                 <img
                   src={apt.image || "/placeholder.svg"}
                   alt={apt.name}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-56 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-full font-bold shadow-lg">
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-secondary text-secondary-foreground px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold shadow-lg text-sm sm:text-base">
                   {apt.price}/noche
                 </div>
                 <div
-                  className={`absolute top-4 left-4 px-4 py-2 rounded-full font-bold shadow-lg ${
+                  className={`absolute top-3 sm:top-4 left-3 sm:left-4 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold shadow-lg text-xs sm:text-sm ${
                     apt.available ? "bg-green-500 text-white" : "bg-red-500 text-white"
                   }`}
                 >
                   {apt.available ? "Disponible" : "No Disponible"}
                 </div>
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
+              <CardContent className="p-4 sm:p-6">
+                <h3
+                  className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
                   {apt.name}
                 </h3>
 
-                <div className="flex items-center gap-4 mb-4 text-muted-foreground">
+                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Bed className="w-4 h-4" />
                     <span className="text-sm">{apt.beds}</span>
@@ -154,9 +157,12 @@ export function Apartments() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                   {apt.features.map((feature, i) => (
-                    <span key={i} className="inline-flex items-center gap-1 bg-accent px-3 py-1 rounded-full text-sm">
+                    <span
+                      key={i}
+                      className="inline-flex items-center gap-1 bg-accent px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm"
+                    >
                       {feature === "WiFi" && <Wifi className="w-3 h-3" />}
                       {feature === "A/C" && <Wind className="w-3 h-3" />}
                       {(feature.includes("Vista") || feature.includes("Mar") || feature.includes("Playa")) && (
@@ -167,7 +173,10 @@ export function Apartments() {
                   ))}
                 </div>
 
-                <Button onClick={() => handleReserveClick(apt)} className="w-full bg-primary hover:bg-primary/90">
+                <Button
+                  onClick={() => handleReserveClick(apt)}
+                  className="w-full bg-primary hover:bg-primary/90 text-sm sm:text-base py-5 sm:py-6"
+                >
                   {apt.available ? "Ver Detalles y Reservar" : "Ver Detalles"}
                 </Button>
               </CardContent>

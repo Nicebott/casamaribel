@@ -26,34 +26,37 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicios" className="py-24 bg-accent/30">
+    <section id="servicios" className="py-12 sm:py-16 md:py-24 bg-accent/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-balance"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Nuestros Servicios
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
             Todo lo que necesitas para disfrutar de Las Terrenas en un solo lugar
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <Card
               key={index}
               className="border-2 hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              <CardContent className="p-8 text-center">
-                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10">
-                  <service.icon className={`w-8 h-8 ${service.color}`} />
+              <CardContent className="p-6 sm:p-8 text-center">
+                <div className="mb-4 sm:mb-6 inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10">
+                  <service.icon className={`w-7 h-7 sm:w-8 sm:h-8 ${service.color}`} />
                 </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
+                <h3
+                  className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{service.description}</p>
               </CardContent>
             </Card>
           ))}
