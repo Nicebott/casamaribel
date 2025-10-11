@@ -72,7 +72,7 @@ export function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="mailto:info@casamaribel.com"
+                href="mailto:ferminmaribel@casamaribel.com.do"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors"
               >
                 <Mail className="w-5 h-5" />

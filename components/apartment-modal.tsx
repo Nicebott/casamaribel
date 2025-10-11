@@ -2,7 +2,21 @@
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { Bed, Bath, Maximize, Wifi, Wind, Waves, MapPin, Users, Utensils, Tv, Car } from "lucide-react"
+import {
+  Bed,
+  Bath,
+  Maximize,
+  Wifi,
+  Wind,
+  Waves,
+  MapPin,
+  Users,
+  Utensils,
+  Tv,
+  Car,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 import { useState } from "react"
 
 interface ApartmentModalProps {
@@ -16,6 +30,7 @@ interface ApartmentModalProps {
     features: string[]
     description: string
     amenities: string[]
+    available?: boolean
   } | null
   open: boolean
   onOpenChange: (open: boolean) => void
@@ -67,25 +82,25 @@ export function ApartmentModal({ apartment, open, onOpenChange }: ApartmentModal
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
                   aria-label="Imagen anterior"
                 >
-                  ←
+                  <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
                   aria-label="Siguiente imagen"
                 >
-                  →
+                  <ChevronRight className="w-6 h-6" />
                 </button>
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                   {apartment.images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentImageIndex ? "bg-white" : "bg-white/50"
+                      className={`w-3 h-3 rounded-full transition-all shadow-md ${
+                        index === currentImageIndex ? "bg-white scale-125" : "bg-white/60 hover:bg-white/80"
                       }`}
                       aria-label={`Ir a imagen ${index + 1}`}
                     />
@@ -157,9 +172,15 @@ export function ApartmentModal({ apartment, open, onOpenChange }: ApartmentModal
           </div>
 
           {/* Botón de reserva */}
-          <Button onClick={handleReserve} className="w-full bg-primary hover:bg-primary/90 text-lg py-6">
-            Reservar Ahora por WhatsApp
-          </Button>
+          {apartment.available !== false ? (
+            <Button onClick={handleReserve} className="w-full bg-primary hover:bg-primary/90 text-lg py-6">
+              Reservar Ahora por WhatsApp
+            </Button>
+          ) : (
+            <div className="w-full bg-red-100 text-red-800 text-center py-6 rounded-lg font-semibold text-lg">
+              Este apartamento no está disponible actualmente
+            </div>
+          )}
         </div>
       </DialogContent>
     </Dialog>

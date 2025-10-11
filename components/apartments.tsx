@@ -123,6 +123,13 @@ export function Apartments() {
                 <div className="absolute top-4 right-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-full font-bold shadow-lg">
                   {apt.price}/noche
                 </div>
+                <div
+                  className={`absolute top-4 left-4 px-4 py-2 rounded-full font-bold shadow-lg ${
+                    apt.available ? "bg-green-500 text-white" : "bg-red-500 text-white"
+                  }`}
+                >
+                  {apt.available ? "Disponible" : "No Disponible"}
+                </div>
               </div>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
@@ -158,7 +165,7 @@ export function Apartments() {
                 </div>
 
                 <Button onClick={() => handleReserveClick(apt)} className="w-full bg-primary hover:bg-primary/90">
-                  Ver Detalles y Reservar
+                  {apt.available ? "Ver Detalles y Reservar" : "Ver Detalles"}
                 </Button>
               </CardContent>
             </Card>
