@@ -6,7 +6,7 @@ const services = [
     icon: Building2,
     title: "Alquiler de Apartamentos",
     description:
-      "Apartamentos completamente equipados con vista al mar y todas las comodidades para tu estadía perfecta.",
+      "Apartamentos completamente equipados a 1 minuto de las hermosas playas Las Ballenas en Las Terrenas, con todas las comodidades para tu estadía perfecta.",
     color: "text-primary",
   },
   {
